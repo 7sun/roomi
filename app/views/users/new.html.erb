@@ -1,9 +1,9 @@
-<h1>Sign Up</h1>
+<h2>Sign Up</h2>
 
 <%= form_for @user, url: signup_path do |u| %>
-	<p><%= u.label :email %><%= u.text_field :email %></p>
-	<p><%= u.label :password %><%= u.password_field :password %></p>
-	<p><%= u.label :password_confirmation, 'Confirm' %><%= u.password_field :password_confirmation %></p>
+	<p><%= u.text_field :email, placeholder: :email %></p>
+	<p><%= u.password_field :password, placeholder: :password %></p>
+	<p><%= u.password_field :password_confirmation, placeholder: 'Confirm Password' %></p>
 	<%= u.submit 'Submit' %>
 
 <% end %>

@@ -1,12 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Roomie</title>
+  <title>Roomi</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div class="header">
+		<div class="account-links">
+			<% if current_user %>
+				<strong><%= current_user.email %></strong> | <%= link_to 'Logout', logout_path %>
+			<% else %>
+				<strong><%= link_to 'Sign Up', signup_path %></strong> | <%= link_to 'Login', login_path %> 
+			<% end %>
+		</div>
+		<h1><%= link_to 'Roomi', root_path %></h1>
+	</div>
 
 <%= yield %>
 
