@@ -4,4 +4,5 @@ class Expense
   field :amount, type: Integer
   field :description, type: String
   field :date, type: String
+  mount_uploader :photo, PhotoUploader
 end

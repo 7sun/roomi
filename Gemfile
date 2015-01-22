@@ -11,9 +11,6 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -28,6 +25,17 @@ gem 'mongoid', '~>4.0.0'
 gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+#Secures API keys
+gem 'figaro'
+#Store files online
+gem 'carrierwave'
+#Integrate with Mongoid
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
+#for use with Amazon S3
+gem 'fog'
+#for post-upload image processing
+gem 'mini_magick'
+
 
 
 group :development, :test do
