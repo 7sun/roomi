@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'expenses#index'
+  root 'pages#home'
 
   get '/signup' => 'users#new', as: :signup
   post '/signup' => 'users#create'
@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy', as: :logout
 
   resources :expenses
+  resources :groups
 
 end
