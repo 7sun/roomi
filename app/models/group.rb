@@ -3,8 +3,7 @@ class Group
   field :name, type: String
   field :home_type, type: String
   field :owner_id, type: String
-  field :member_emails, type: String
-
+  field :member_emails, type: Array
 
   has_many :users #need to limit users to 6
 

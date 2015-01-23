@@ -6,4 +6,6 @@
 	<p><%= u.password_field :password_confirmation, placeholder: 'Confirm Password' %></p>
 	<%= u.submit 'Submit' %>
 
+	<p>Already have an account? <%= link_to 'Login', login_path %></p>
+
 <% end %>

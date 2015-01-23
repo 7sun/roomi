@@ -17,7 +17,9 @@ class GroupsController < ApplicationController
   end
 
 	def create
-		@group = Group.new(params.require(:group).permit(:name, :home_type, :member_emails))
+    @group = Group.new(params.require(:group).permit(:name, :home_type))
+    # raise @group.inspect
+    @group.member_emails = params[:group][:member_emails].gsub(" ", "").split(',')
     @group.owner_id = current_user.id
 		if @group.valid?
 			if @group.save
