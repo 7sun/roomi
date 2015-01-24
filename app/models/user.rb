@@ -6,9 +6,12 @@ class User
 
   field :email, type: String
   field :password_digest, type: String
+  field :group_member, type: Boolean
   # field :group_owner, type: Boolean
 
+  belongs_to :group
+
   validates :email, uniqueness: { case_sensitive: false }
-  validates :password, confirmation: true, length: { :within => 6..30 }
+  validates :password, confirmation: true#, length: { :within => 6..30 }
 
 end

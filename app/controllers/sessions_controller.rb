@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 			# logger.info("params: #{params.inspect}") SAME AS CONSOLE LOG
 		if user && user.authenticate(params[:user][:password])
 			session[:user_id] = user.id.to_s
-			redirect_to groups_path
+			redirect_to home_path
 		else
 			render :new
 		end
