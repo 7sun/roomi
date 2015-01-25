@@ -16,13 +16,12 @@
     <% end %>
   <% end %>
 <% else %>
-  <% if @group %>
+  <% if @group.exists? %>
     <% @group.each do |g| %>
     <p><%= "You have been invited to join the #{g.name} group!"%></p>
-    <p><%= link_to 'Join now', join_path %></p>
     <% end %>
+    <p><%= link_to 'Join now', join_path %></p>
   <% else %>
-	  <h2>Make a group</h2>
     <p><%= link_to 'Create a Group', new_group_path %></p>
   <% end %>
 <% end %>
