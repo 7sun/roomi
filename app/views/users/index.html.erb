@@ -1,49 +1,56 @@
-<% if current_user.group_member %>
-    <h2>Home</h2>
-		<h3><%= @group.name %></h3>
-		<p><%= @group.address %></p>
-    Members <%= link_to 'Invite', edit_group_path(@group.name) %>
-    <ul>
-      <% @group.member_emails.each do |m| %>
-        <li><%= m %></li>
-      <% end %>
-    </ul>
-
-
-    House Expenses <%= link_to "Add expense", new_expense_path %>
-    <table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Expense</th>
-          <th>Roommate</th>
-          <th>Amount</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @group.expenses.each do |e| %>
-        <tr>
-          <td><%= e.date %></td>
-          <td><p><%= e.expense_type %></p><em><%=e.description%></em></td>
-          <td><%= e.owner %></td>
-          <td><%= e.amount %></td>
-        </tr>
+<div class="container">
+  <div class="content">
+  <div class="aside">
+  <% if current_user.group_member %>
+      <h2>Home</h2>
+  		<h3><%= @group.name %></h3>
+  		<p><%= @group.address %></p>
+      Members <%= link_to 'Invite', edit_group_path(@group.name) %>
+      <ul>
+        <% @group.member_emails.each do |m| %>
+          <li><%= m %></li>
         <% end %>
-      </tbody>
-    </table>
+      </ul>
+    </div>
 
-    <hr>
+      <div class="table-header">
+      House Expenses <%= link_to "Add expense", new_expense_path %>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Expense</th>
+            <th>Roommate</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @group.expenses.each do |e| %>
+          <tr>
+            <td><%= e.date %></td>
+            <td><p><%= e.expense_type %></p><em><%=e.description%></em></td>
+            <td><%= e.owner %></td>
+            <td><%= e.amount %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
 
-    <% if current_user.id.to_s == @group.owner_id.to_s %>
-      <%= link_to 'Delete Group', 'groups#destroy' %>
-    <% else %>
-      <%= link_to 'Leave Group' %>
-    <% end %>
-<% else %>
-  <% if @group %>
-    <p><%= "You have been invited to join the #{@group.name} group!"%></p>
-    <p><%= link_to 'Join now', join_path %></p>
+      <hr>
+
+      <% if current_user.id.to_s == @group.owner_id.to_s %>
+        <%= link_to 'Delete Group', 'groups#destroy' %>
+      <% else %>
+        <%= link_to 'Leave Group' %>
+      <% end %>
   <% else %>
-    <p><%= link_to 'Create a Group', new_group_path %></p>
+    <% if @group %>
+      <p><%= "You have been invited to join the #{@group.name} group!"%></p>
+      <p><%= link_to 'Join now', join_path %></p>
+    <% else %>
+      <p><%= link_to 'Create a Group', new_group_path %></p>
+    <% end %>
   <% end %>
-<% end %>
+</div>

@@ -4,8 +4,24 @@ div.container {
   @include outer-container;
 }
 
-div.element {
-  @include span-columns(6);
+.table-header {
+  @include fill-parent();
+  @include row(table);
+}
+
+div.aside {
+  @include span-columns(4);
+  @include pad();
+}
+
+// div.element {
+//   @include span-columns(6);
+// }
+
+table {
+  @include span-columns(8);
+  @include reset-display;
+  @include pad();
 }
 
 // EXAMPLE TO MAKE RESPONSIVE
