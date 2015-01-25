@@ -22,7 +22,7 @@ class GroupsController < ApplicationController
   end
 
 	def create
-    @group = Group.new(params.require(:group).permit(:name, :home_type))
+    @group = Group.new(params.require(:group).permit(:name, :home_type, :address))
 		if @group.valid?
       @group.member_emails = params[:group][:member_emails].gsub(" ", "").split(',').unshift(current_user.email)
       @group.owner_id = current_user.id

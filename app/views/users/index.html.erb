@@ -1,1 +1,18 @@
-<h2>Home</h2>
+<% if current_user.group_member %>
+	<% @group.each do |g| %>
+    <h2>Home</h2>
+		<h3><%= g.name %></h3>
+		<p><%= g.address %></p>
+    <p><%= g.home_type %></p>
+    Members:<ul>
+    <% g.member_emails.each do |m| %>
+      <li><%= m %></li>
+      <% end %>
+    </ul>
+    <%= link_to 'Invite more members', edit_group_path(@group.name) %> 
+	<% end %>
+<% else %>
+	<h2>Make a group</h2>
+  <p><%= link_to 'Create a Group', new_group_path %></p>
+  <p><%= link_to 'Join a Group', edit_group_path(:id) %></p>
+<% end %>
