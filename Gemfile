@@ -34,8 +34,12 @@ gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 gem 'fog'
 #for post-upload image processing
 gem 'mini_magick'
-
+#Loads pry when running code
 gem 'pry-rails'
+#Loads Bourbon
+gem 'bourbon'
+
+gem 'neat'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

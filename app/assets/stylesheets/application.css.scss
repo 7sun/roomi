@@ -1,0 +1,21 @@
+@import "bourbon";
+@import "neat";
+@import "pages";
+
+label {
+	width: 100px;
+	display: inline-block;
+}
+
+.account-links {
+	float: right;
+	padding-right: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+.header {
+	text-align: left;
+}
