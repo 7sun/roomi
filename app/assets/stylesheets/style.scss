@@ -1,0 +1,29 @@
+
+// For the outermost container
+div.container {
+  @include outer-container;
+}
+
+div.element {
+  @include span-columns(6);
+}
+
+// EXAMPLE TO MAKE RESPONSIVE
+.my-class {
+  @include media($mobile) { // As defined in _grid-settings.scss
+    @include span-columns(2);
+  }
+}
+
+// Compiled CSS
+@media screen and (max-width: 480px) {
+  .my-class {
+    display: block;
+    float: left;
+    margin-right: 7.42297%;
+    width: 46.28851%; // 2 columns of the total 4 in this media context
+  }
+  .my-class:last-child {
+    margin-right: 0;
+  }
+}
