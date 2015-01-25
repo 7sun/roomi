@@ -6,7 +6,6 @@ class GroupsController < ApplicationController
 
 	def new
 		@group = Group.new
-    # @user = User.find_by(session[:user_id])
 	end
 
   def show  
@@ -36,6 +35,10 @@ class GroupsController < ApplicationController
 		end
 	end
 
+  def destroy
+    @group
+  end
+
   def join
     current_user.update(group_member: true)
     if current_user.save
@@ -45,12 +48,10 @@ class GroupsController < ApplicationController
     end
   end
 
-  def destroy
-  end
-
-  def leave
+  def leave #Need to test functionality
     @group = Group.find(params[:id])
     @group.member_emails.delete(current_user)
+    current_user.update(group_member: false)
   end
 
 end

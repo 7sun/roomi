@@ -1,25 +1,31 @@
 <% if current_user.group_member %>
-	<% @group.each do |g| %>
     <h2>Home</h2>
-		<h3><%= g.name %></h3>
-		<p><%= g.address %></p>
-    <p><%= g.home_type %></p>
-    Members <%= link_to 'Invite more', edit_group_path(@group.name) %><ul>
-    <% g.member_emails.each do |m| %>
-      <li><%= m %></li>
+		<h3><%= @group.name %></h3>
+		<p><%= @group.address %></p>
+    <p><%= @group.home_type %></p>
+    Members <%= link_to 'Invite more', edit_group_path(@group.name) %>
+    <ul>
+      <% @group.member_emails.each do |m| %>
+        <li><%= m %></li>
       <% end %>
     </ul>
-    <% if current_user.id.to_s == g.owner_id.to_s %>
+    <h3>House Expenses</h3>
+    <ul>
+      <% @group.expenses.each do |e| %>
+        <li><%= number_to_currency(e.amount) %> : <%= e.expense_type %> <%= e.owner %></li>
+        <% end %>
+    </ul>
+    <p><%= link_to "Add an expense", new_expense_path %></p>
+    <hr>
+
+    <% if current_user.id.to_s == @group.owner_id.to_s %>
       <%= link_to 'Delete Group', 'groups#destroy' %>
     <% else %>
       <%= link_to 'Leave Group' %>
     <% end %>
-  <% end %>
 <% else %>
-  <% if @group.exists? %>
-    <% @group.each do |g| %>
-    <p><%= "You have been invited to join the #{g.name} group!"%></p>
-    <% end %>
+  <% if @group %>
+    <p><%= "You have been invited to join the #{@group.name} group!"%></p>
     <p><%= link_to 'Join now', join_path %></p>
   <% else %>
     <p><%= link_to 'Create a Group', new_group_path %></p>

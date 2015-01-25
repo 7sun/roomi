@@ -6,7 +6,8 @@ class Group
   field :member_emails, type: Array
   field :owner_id, type: String
 
-  has_many :users #need to limit users to 6
+  # has_many :users #need to limit users to 6
+  embeds_many :expenses
 
   validates :name, presence: true, uniqueness: {case_sensitive: false}
   validates :address, presence: true
