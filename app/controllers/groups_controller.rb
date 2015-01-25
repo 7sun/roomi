@@ -29,7 +29,7 @@ class GroupsController < ApplicationController
       current_user.update(group_member: true)
       logger.info(current_user.errors.messages.inspect)
 			if @group.save
-				redirect_to group_path(@group.id)
+				redirect_to home_path
 			end
     else
         render :new
