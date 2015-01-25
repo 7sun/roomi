@@ -4,15 +4,25 @@
 		<h3><%= g.name %></h3>
 		<p><%= g.address %></p>
     <p><%= g.home_type %></p>
-    Members:<ul>
+    Members <%= link_to 'Invite more', edit_group_path(@group.name) %><ul>
     <% g.member_emails.each do |m| %>
       <li><%= m %></li>
       <% end %>
     </ul>
-    <%= link_to 'Invite more members', edit_group_path(@group.name) %> 
-	<% end %>
+    <% if current_user.id.to_s == g.owner_id.to_s %>
+      <%= link_to 'Delete Group', 'groups#destroy' %>
+    <% else %>
+      <%= link_to 'Leave Group' %>
+    <% end %>
+  <% end %>
 <% else %>
-	<h2>Make a group</h2>
-  <p><%= link_to 'Create a Group', new_group_path %></p>
-  <p><%= link_to 'Join a Group', edit_group_path(:id) %></p>
+  <% if @group %>
+    <% @group.each do |g| %>
+    <p><%= "You have been invited to join the #{g.name} group!"%></p>
+    <p><%= link_to 'Join now', join_path %></p>
+    <% end %>
+  <% else %>
+	  <h2>Make a group</h2>
+    <p><%= link_to 'Create a Group', new_group_path %></p>
+  <% end %>
 <% end %>

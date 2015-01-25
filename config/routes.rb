@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/login'       => 'sessions#create'
   get '/logout'       => 'sessions#destroy', as: :logout
   get '/home'         => 'users#index', as: :home
+  get '/join'         => 'groups#join', as: :join
 
   resources :expenses
   resources :groups
