@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
 	def get_group_link
 		if current_user.id.to_s == @group.owner_id.to_s
-			group_link = ['Delete Group', 'groups#destroy(@group)']
+			group_link = ['Delete Group', "" 'method: destroy']
 		else
 			group_link = ['Leave Group', 'groups#edit']
 		end

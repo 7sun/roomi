@@ -33,7 +33,7 @@
         <% @group.expenses.each do |e| %>
         <tr>
           <td><%= e.date %></td>
-          <td><p><%= e.expense_type %></td>
+          <td><%= link_to e.expense_type, edit_expense_path(e)%></td>
           <td><%= e.owner_name %></td>
           <td class="amount"><%= number_to_currency(e.amount) %></td>
         </tr>
