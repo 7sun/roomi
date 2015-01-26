@@ -1,14 +1,19 @@
 <div class="container">
-	<h2>Sign Up</h2>
+	<div class="left-side">
+		<h2>Sign Up</h2>
 
-	<%= form_for @user, url: signup_path do |u| %>
-		<p><%= u.text_field :name, placeholder: :name %></p>
-		<p><%= u.text_field :email, placeholder: :email %></p>
-		<p><%= u.password_field :password, placeholder: :password %></p>
-		<p><%= u.password_field :password_confirmation, placeholder: 'Confirm Password' %></p>
-		<%= u.submit 'Submit' %>
+		<%= form_for @user, url: signup_path do |u| %>
+			<%= u.text_field :name, placeholder: :name %>
+			<%= u.text_field :email, placeholder: :email %>
+			<%= u.password_field :password, placeholder: :password %>
+			<%= u.password_field :password_confirmation, placeholder: 'Confirm Password' %>
+			<%= u.submit 'Submit' %>
 
-		<p>Already have an account? <%= link_to 'Login', login_path %></p>
+			<p>Already have an account? <%= link_to 'Login', login_path %></p>
 
-	<% end %>
+		<% end %>
+	</div>
+	<div class="right-side">
+		<img src="http://i.imgur.com/Zn2uw8z.jpg">
+	</div>
 </div>

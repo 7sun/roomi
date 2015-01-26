@@ -1,7 +1,14 @@
 <div class="container">
-<%= form_for :user, url: login_path, method: :post do |u| %>
-	<%= u.text_field :email, placeholder: 'Email' %>
-	<%= u.password_field :password, placeholder: 'Password' %>
-	<%= u.submit 'Submit' %>
-<% end %>
+	<div class="left-side">
+	<h2>Log in</h2>
+	<%= form_for :user, url: login_path, method: :post do |u| %>
+		<%= u.text_field :email, placeholder: 'Email' %>
+		<%= u.password_field :password, placeholder: 'Password' %>
+		<%= u.submit 'Submit' %>
+		<p><a href="#">Forgot your email or password?</a></p>
+	<% end %>
+	</div>
+	<div class="right-side">
+		<img src="http://i.imgur.com/lmxcdj8.jpg">
+	</div>
 </div>
