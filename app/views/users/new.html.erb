@@ -1,12 +1,14 @@
-<h2>Sign Up</h2>
+<div class="container">
+	<h2>Sign Up</h2>
 
-<%= form_for @user, url: signup_path do |u| %>
-	<p><%= u.text_field :name, placeholder: :name %></p>
-	<p><%= u.text_field :email, placeholder: :email %></p>
-	<p><%= u.password_field :password, placeholder: :password %></p>
-	<p><%= u.password_field :password_confirmation, placeholder: 'Confirm Password' %></p>
-	<%= u.submit 'Submit' %>
+	<%= form_for @user, url: signup_path do |u| %>
+		<p><%= u.text_field :name, placeholder: :name %></p>
+		<p><%= u.text_field :email, placeholder: :email %></p>
+		<p><%= u.password_field :password, placeholder: :password %></p>
+		<p><%= u.password_field :password_confirmation, placeholder: 'Confirm Password' %></p>
+		<%= u.submit 'Submit' %>
 
-	<p>Already have an account? <%= link_to 'Login', login_path %></p>
+		<p>Already have an account? <%= link_to 'Login', login_path %></p>
 
-<% end %>
+	<% end %>
+</div>

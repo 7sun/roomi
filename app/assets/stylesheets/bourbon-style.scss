@@ -653,16 +653,16 @@ header.navigation {
 
   $hero-background-top: #7F99BE; 
   $hero-background-bottom: #20392B;
-  $hero-color: black;
+  $hero-color: white;
   $gradient-angle: 10deg;
-  $hero-image: 'http://i.imgur.com/zScydkO.jpg';
+  $hero-image: 'http://i.imgur.com/pORVezz.jpg';
 
   @include background(url($hero-image), linear-gradient($gradient-angle, $hero-background-bottom, $hero-background-top), no-repeat $hero-background-top scroll);
   background-color: #324766;
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-bottom: 3em;
+  padding-bottom: 19em;
 
   .hero-logo img {
     height: 4em;
@@ -674,29 +674,30 @@ header.navigation {
     @include clearfix;
     color: $hero-color;
     margin: auto;
-    padding: 3.5em;
+    padding: 3em 5em 5em;
     text-align: center;
 
     .hero-copy {
       text-align: center;
       
       h1 {
-        font-size: 3em;
+        font-size: 2em;
         margin-bottom: 0.5em;
 
         @include media($large-screen) {
-          font-size: 3em;
+          font-size: 2em;
         }
       }
 
       p {
+        font-size: 1.6em;
         font-weight: 500;
         line-height: 1.4em;
-        margin: 0 auto 3em auto; 
+        margin: 0 auto 0.5em auto; 
 
         @include media($large-screen) {
-          font-size: 1.1em;
-          max-width: 40%;
+          font-size: 1.8em;
+          max-width: 44%;
         }
       }
     }
@@ -741,12 +742,13 @@ header.navigation {
   @include display(flex);
   @include flex-wrap(wrap);
   margin-bottom: $base-line-height;
-  margin: 3em 0 1em;
+  margin: 0 0 1em;
   overflow: auto;
 
   .bullet {
     @include flex-basis(20em);
     @include flex-grow(1);
+    padding-right: 1.5em;
   }
 
   .bullet-icon {
