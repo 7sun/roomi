@@ -26,7 +26,7 @@ body {
 	}
 
 	p:last-child {
-		margin: 0.75em 0 14em;
+		margin: 0.75em 0 1.5em;
 		@include media($large-screen) {
 			margin: 1.5em 0 28em;
 		}
