@@ -35,8 +35,10 @@ class GroupsController < ApplicationController
 		end
 	end
 
-  def destroy
-    @group
+  def destroy(group)
+    @group = group
+    @group.destroy
+    redirect_to home_path
   end
 
   def join

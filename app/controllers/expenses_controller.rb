@@ -17,14 +17,6 @@ class ExpensesController < ApplicationController
     group = Group.where(:member_emails.in => [current_user.email]).first
     group.expenses.create(expense_params)
     redirect_to home_path
-    # if expense.valid?
-    #   expense.owner = current_user.id
-    #   if group.expenses.save
-    #     redirect_to home_path
-    #   end
-    # else
-    #   render :new
-    # end
   end
 
 

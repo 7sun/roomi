@@ -471,7 +471,7 @@ header.navigation {
     color: $stats-color;
     display: inline;
     float: left;
-    font-size: 1.2em;
+    font-size: 2em;
     font-weight: 800;
     line-height: 1.1em;
     padding: 0 0.7em;
@@ -749,6 +749,7 @@ header.navigation {
     @include flex-basis(20em);
     @include flex-grow(1);
     padding-right: 1.5em;
+    padding-left: 1.5em;
   }
 
   .bullet-icon {

@@ -1,20 +1,24 @@
-    <div class="aside">
-    <% if current_user.group_member %>
-        <h3><%= @group.name %></h3>
-        <p><%= @group.address %></p>
-        <h5>Roommates</h5>
-        <ul>
-          <% @group.member_emails.each do |m| %>
-            <li><%= m %></li>
-          <% end %>
-          <li><%= link_to 'Invite', edit_group_path(@group.name) %></li>
-        </ul>
-        <div class="stats">
-          <ul>
-            <li><%= @group.expenses.count %><span>Expenses</span></li>
-            <li><%= number_to_currency(@total) %><span>Total</span></li>
-          </ul>
-        </div>
+<div class="container">
+  <% if current_user.group_member %>
+    <div class="stats home-stats">
+      <ul>
+        <li><%= number_to_currency(@total) %><span>Total</span></li>
+        <li><%= @group.expenses.count %><span>Expenses</span></li>
+      </ul>
+    </div>
+    <div class="address-info">
+      <h3><%= @group.name %></h3>
+      <p><%= @group.address %></p>
+      <%= link_to "#{@group_link[0]}", "#{@group_link[1]}" %>
+    </div>
+    <div class ="roommate-list">
+      <h3>Roommates</h3>
+      <ul>
+        <% @group.member_emails.each do |m| %>
+          <li><%= m %>, </li>
+        <% end %>
+      </ul>
+      <p><%= link_to 'Invite', edit_group_path(@group.name) %></p>
     </div>
     <table class="tables">
       <thead>
@@ -37,13 +41,8 @@
       </tbody>
     </table>
 
-      <hr>
 
-      <% if current_user.id.to_s == @group.owner_id.to_s %>
-        <%= link_to 'Delete Group', 'groups#destroy' %>
-      <% else %>
-        <%= link_to 'Leave Group' %>
-      <% end %>
+
   <% else %>
     <% if @group %>
       <p><%= "You have been invited to join the #{@group.name} group!"%></p>
@@ -52,3 +51,4 @@
       <p><%= link_to 'Create a Group', new_group_path %></p>
     <% end %>
   <% end %>
+</div>
