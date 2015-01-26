@@ -1,45 +1,30 @@
-
-// For the outermost container
-div.container {
-  @include outer-container;
+.amount {
+  text-align: right;
+  width: 100px;
 }
 
-.table-header {
-  @include fill-parent();
-  @include row(table);
+body {
+	margin: 0;
 }
 
-div.aside {
-  @include span-columns(4);
-  @include pad();
+.navigation-tools strong {
+	color: white;
 }
 
-// div.element {
-//   @include span-columns(6);
+// label {
+// 	width: 100px;
+// 	display: inline-block;
 // }
 
-table {
-  @include span-columns(8);
-  @include reset-display;
-  @include pad();
-}
+// .account-links {
+// 	float: right;
+// 	padding-right: 20px;
+// }
 
-// EXAMPLE TO MAKE RESPONSIVE
-.my-class {
-  @include media($mobile) { // As defined in _grid-settings.scss
-    @include span-columns(2);
-  }
-}
+// a {
+// 	text-decoration: none;
+// }
 
-// Compiled CSS
-@media screen and (max-width: 480px) {
-  .my-class {
-    display: block;
-    float: left;
-    margin-right: 7.42297%;
-    width: 46.28851%; // 2 columns of the total 4 in this media context
-  }
-  .my-class:last-child {
-    margin-right: 0;
-  }
-}
+// .header {
+// 	text-align: left;
+// }

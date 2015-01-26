@@ -5,6 +5,7 @@ class Expense
   field :description, type: String
   field :date, type: Date
   field :owner, type: String
+  field :owner_name, type: String
   mount_uploader :photo, PhotoUploader
 
   embedded_in :group

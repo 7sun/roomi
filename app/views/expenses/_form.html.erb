@@ -4,5 +4,6 @@
 	<p><%= e.date_field :date, placeholder: :date %></p>
 	<p><%= e.text_field :description, placeholder: :description %></p>
 	<p><%= e.hidden_field :owner, value:current_user.id %></p>
+	<p><%= e.hidden_field :owner_name, value:current_user.name %></p>
 	<%= e.submit %>
 <% end %>

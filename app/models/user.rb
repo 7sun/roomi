@@ -6,6 +6,7 @@ class User
 
   # field :name, type: String
   field :email, type: String
+  field :name, type: String
   field :password_digest, type: String
   field :group_member, type: Boolean
 

@@ -2,6 +2,17 @@ class UsersController < ApplicationController
 
 	def index
 		@group = Group.where(:member_emails.in => [current_user.email]).first
+		@total = sum_expenses
+	end
+
+	def sum_expenses
+		if @group
+			sum = 0
+			@group.expenses.each do |i|
+				sum += i.amount
+			end
+			sum
+		end
 	end
 
 
@@ -22,7 +33,7 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:email, :password)
+		params.require(:user).permit(:email, :password, :name)
 	end
 
 

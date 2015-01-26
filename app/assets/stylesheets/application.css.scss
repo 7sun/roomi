@@ -2,23 +2,6 @@
 @import "base/base";
 @import "grid-settings";
 @import "neat";
+@import "bourbon-style";
 @import "style";
 @import "pages";
-
-label {
-	width: 100px;
-	display: inline-block;
-}
-
-.account-links {
-	float: right;
-	padding-right: 20px;
-}
-
-a {
-	text-decoration: none;
-}
-
-.header {
-	text-align: left;
-}
