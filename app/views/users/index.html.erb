@@ -44,11 +44,15 @@
 
 
   <% else %>
-    <% if @group %>
-      <p><%= "You have been invited to join the #{@group.name} group!"%></p>
-      <p><%= link_to 'Join now', join_path %></p>
-    <% else %>
-      <p><%= link_to 'Create a Group', new_group_path %></p>
-    <% end %>
+    <div class="left-side">
+      <h2>Welcome to Roomi!</h2>
+      <% if @group %>
+        <p><%= "You have been invited to join the #{@group.name} group!"%></p>
+        <p><%= link_to 'Join now', join_path %></p>
+      <% else %>
+        <p>To get started, add your home:</p>
+        <p><%= link_to 'Create a Home', new_group_path %></p>
+      <% end %>
+    </div>
   <% end %>
 </div>

@@ -1,9 +1,17 @@
-<h2>Create a new group</h2>
+<div class="container">
+	<div class="left-side">
+		<h2>Create your home</h2>
 
-<%= form_for @group do |g| %>
-	<p><%= g.select(:home_type, options_for_select(['apartment', 'house'])) %></p>
-	<p><%= g.text_field :name, placeholder: 'Group name' %></p>
-	<p><%= g.text_field :address, placeholder: :address %></p>
-	<p><%= g.text_field :member_emails, placeholder: 'Send invites to...' %></p>
-	<%= g.submit 'Submit' %>
-<% end %>
+		<%= form_for @group do |g| %>
+			<p><%= g.select(:home_type, options_for_select(['apartment', 'house'])) %></p>
+			<p><%= g.text_field :name, placeholder: 'Group name' %></p>
+			<p><%= g.text_field :address, placeholder: :address %></p>
+			<p><%= g.text_field :member_emails, placeholder: 'Send invites to...' %></p>
+			<%= g.submit 'Submit' %>
+		<% end %>
+		<p></p>
+	</div>
+	<div class="right-side">
+		<img src="http://i.imgur.com/QWTPQgh.jpg">
+	</div>
+</div>
