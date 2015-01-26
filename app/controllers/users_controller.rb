@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	def index
 		@group = Group.where(:member_emails.in => [current_user.email]).first
 		@total = sum_expenses
-		@group_link = get_group_link
+		# @group_link = get_group_link
 	end
 
 	def sum_expenses
@@ -16,13 +16,13 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def get_group_link
-		if current_user.id.to_s == @group.owner_id.to_s
-			group_link = ['Delete Group', "" 'method: destroy']
-		else
-			group_link = ['Leave Group', 'groups#edit']
-		end
-	end
+	# def get_group_link
+	# 	if current_user.id.to_s == @group.owner_id.to_s
+	# 		group_link = ['Delete Group', "" 'method: destroy']
+	# 	else
+	# 		group_link = ['Leave Group', 'groups#edit']
+	# 	end
+	# end
 
 	def new
 		@user = User.new
